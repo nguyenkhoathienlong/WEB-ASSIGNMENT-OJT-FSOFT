@@ -1,0 +1,59 @@
+header {
+  padding-left: 50px;
+  background-color: #eeeeee;
+  height: 80px;
+  line-height: 80px;
+}
+header h1 {
+  margin: 0;
+}
+
+.login-container {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 1px solid #aca1a136;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.login-title{
+  padding: 10px;
+  background-color: #F5F5F5;
+  border-bottom: 1px solid #ebe4e4;
+}
+
+form .form-control{
+    margin: 14px auto;
+    padding: 0 14px
+}
+
+form .form-control > input{
+    border: 2px solid #CFCFCF;
+    padding: 8px;
+    border-radius: 4px;
+    outline: none;
+    width: 94%;
+}
+
+.btn-submit{
+    margin: 14px auto;
+    padding: 0 14px
+}
+
+.btn-submit > button{
+    width: 100%;
+    padding: 10px 0;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #5CB85C;
+    transition: all 0.3s linear;
+    cursor: pointer;
+}
+
+.btn-submit > button:hover{
+    opacity: 0.7;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Mobile Store - List of Products</title>
+    <link rel="stylesheet" href="css/products.css" />
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        img{
+        width:70%;
+        height:70%;
+        }
+    </style>
+</head>
+<body>
+<th:block th:include="/_menu"></th:block>
+<header>
+    <div class="header-title">
+        <h1>Products</h1>
+        <h6>All the available products in our store</h6>
+    </div>
+</header>
+<h3>Welcome : <span th:utext="${#request.userPrincipal.name}"></span></h3>
+<!--<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>-->
+    <div class="container">
+        <h2>List of Products</h2>
+        <a th:href="@{/view-cart}" class="btn btn-primary">View cart</a>
+        <div class="col-lg-4 mb-4 col-sm-6" th:each="list : ${products}">
+            <div class="card" style="max-width: 300px; word-break: break-all">
+                <h3 th:text="${list.productName}"></h3>
+                <div class="card-body">
+                    <h5 th:text="${list.productName}"></h5>
+                    <img th:src="${list.productImages}" alt="">
+                    <h5 th:text="${list.description}"></h5>
+                    <div>
+                        <h5 th:text="${list.price}"></h5>
+                        <p class="card-text" style="text-align: left">USD</p>
+                    </div>
+                    <p class="card-text" style="text-align: left" >Unit in Stock</p>
+                    <h5 th:text="${list.unitInStock}"></h5>
+                    <a class="btn btn-primary" th:href="@{/view-detail}"
+                       style="align-items: cen; display: inline-flex; justify-content: center">Detail</a>
+                    <a class="btn btn-primary" th:href="@{/add-to-cart}"
+                       style="align-items: right; display: inline-flex; justify-content: center">Order now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

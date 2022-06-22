@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Add Product</title>
+    <link rel="stylesheet" href="add-product.css" th:href="@{add-product.css}">
+</head>
+<body>
+<th:block th:include="/_menu"></th:block>
+<header>
+    <div class="header-title">
+        <h1>Products</h1>
+        <h3>Add products</h3>
+    </div>
+</header>
+<div class="container">
+    <h1>Add new product</h1>
+    <form method="POST" th:object="${products}" th:action="@{saveProduct}" action="#">
+        <div class="form-control">
+            <label>Product ID</label>
+            <input type="text" th:field="*{productID}" required>
+        </div>
+        <div class="form-control">
+            <label>Product Name</label>
+            <input type="text" th:field="*{productName}" required>
+        </div>
+        <div class="form-control">
+            <label>Unit Price</label>
+            <input type="number" th:field="*{price}" required>
+        </div>
+        <div class="form-control">
+            <label>Units In stock</label>
+            <input type="number" th:field="*{unitInStock}" required>
+        </div>
+        <div class="form-control">
+            <label>Description</label>
+            <textarea th:field="*{description}"></textarea>
+        </div>
+        <div class="form-control">
+            <label>Manufacturer</label>
+            <input type="text" th:field="*{manufacturer}">
+        </div>
+        <div class="form-control">
+            <label>Category</label>
+            <input type="text" th:field="*{category}">
+        </div>
+        <div class="form-control">
+            <label>Condition</label>
+            <input type="radio" th:field="*{condition_id}" value="N">New
+            <input type="radio" th:field="*{condition_id}" value="O">Old
+            <input type="radio" th:field="*{condition_id}" value="REF">Refurbished
+        </div>
+        <div class="form-control">
+            <label>Product Image File</label>
+            <input type="file" th:field="*{productImages}">
+        </div>
+        <button type="submit" class="btn-submit">Save</button>
+    </form>
+</div>
+</body>
+</html>

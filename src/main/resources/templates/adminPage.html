@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<th:block th:include="/_menu"></th:block>
+<h2>Admin Page</h2>
+<h3>Welcome Administrator
+    <span th:utext="${#request.userPrincipal.name}"></span>
+</h3>
+<form th:action="@{manageProduct}" method="post">
+    <button>Manage Product</button>
+</form>
+<h1>List User</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>User Name</th>
+        <th>Full Name</th>
+        <th>Password</th>
+        <th>Role ID</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="users : ${users}">
+        <td th:text="${users.ID}"></td>
+        <td th:text="${users.userName}"></td>
+        <td th:text="${users.fullName}"></td>
+        <td th:text="${users.password}"></td>
+        <td th:text="${users.roleID}"></td>
+        <td>
+            <a th:href="@{/update?id={id}(id=${users.ID})}">Update</a>
+            <a th:href="@{/delete?id={id}(id=${users.ID})}">Delete</a>
+        </td>
+    </tr>
+</table>
+<a href="/add">Add User</a>
+<div th:if="${userInfo != null}" th:utext="${adminInfo}"></div>
+
+</body>
+</html>

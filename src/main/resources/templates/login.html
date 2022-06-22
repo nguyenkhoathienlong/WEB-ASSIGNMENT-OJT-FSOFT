@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css"  rel="stylesheet" />
+    <title>Login page</title>
+</head>
+<body>
+<th:block th:include="/_menu"></th:block>
+<header>
+    <h1>Mobile Store</h1>
+</header>
+<div class="login-container">
+    <div class="login-form">
+        <div class="login-title">
+            <h3>Please sign in</h3>
+        </div>
+        <form th:action="@{/doLogin}" method="POST">
+            <div class="form-control">
+                <input type="text" name="userName" placeholder="User Name" required/>
+            </div>
+            <div class="form-control">
+                <input type="password" name="password" placeholder="Password" required/>
+            </div>
+            <div class="btn-submit">
+                <button type="submit">
+                    Login
+                </button>
+            </div>
+        </form>
+        <div th:if="${#request.getParameter('error') == 'true'}"
+             style="color:red; margin:0 auto; max-width:400px; margin-left: 20px">
+            Login Failed!!!<br/>
+        </div>
+    </div>
+</div>
+</body>
+</html>
